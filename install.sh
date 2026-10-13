@@ -3,15 +3,15 @@ set -euo pipefail
 
 force=false
 personal=false
-with_lore_flow=true
+with_pallas_agent_flow=true
 target=
 
 while (($#)); do
   case "$1" in
     --force) force=true ;;
     --personal) personal=true ;;
-    --with-lore-flow) with_lore_flow=true ;;
-    --without-lore-flow) with_lore_flow=false ;;
+    --with-pallas-agent-flow) with_pallas_agent_flow=true ;;
+    --without-pallas-agent-flow) with_pallas_agent_flow=false ;;
     -*) printf 'Unknown option: %s\n' "$1" >&2; exit 2 ;;
     *) [[ -z "$target" ]] || { printf 'Only one target path is allowed.\n' >&2; exit 2; }; target="$1" ;;
   esac
@@ -63,7 +63,7 @@ if [[ "$personal" == true ]]; then
     exclude_path ".cursor/rules/$name"
   done < <(copy_entries "$repo/.cursor/rules" "$target/.cursor/rules")
 
-  exclude_path '.lore-flow/'
+  exclude_path '.pallas-agent-flow/'
   exclude_path 'product/'
 
   printf 'Installed personal agent lore in %s; its files are listed in %s\n' "$target" "$exclude_file"
@@ -82,13 +82,13 @@ else
   printf 'Installed agent lore in %s\n' "$target"
 fi
 
-if [[ "$with_lore_flow" == true ]]; then
-  flow_home="${LORE_FLOW_HOME:-$HOME/tools/lore-flow}"
-  flow_ref="82abc3ad0a3be6accf8b890b9c9402544ac8f8fb"
-  flow_repo="https://github.com/jmarlett93/lore-flow.git"
+if [[ "$with_pallas_agent_flow" == true ]]; then
+  flow_home="${PALLAS_AGENT_FLOW_HOME:-$HOME/tools/pallas-agent-flow}"
+  flow_ref="c02d5e9c0ad4dafe8c28799c06dc885eb9b2f13d"
+  flow_repo="https://github.com/semper-nova-tech/pallas-agent-flow.git"
 
   if [[ -e "$flow_home" ]]; then
-    printf 'Lore Flow already exists at %s; leaving it unchanged.\n' "$flow_home"
+    printf 'Pallas Agent Flow already exists at %s; leaving it unchanged.\n' "$flow_home"
   else
     mkdir -p "$(dirname "$flow_home")"
     git clone --depth 1 "$flow_repo" "$flow_home"
@@ -97,12 +97,12 @@ if [[ "$with_lore_flow" == true ]]; then
   fi
 
   plugin_dir="$HOME/.cursor/plugins/local"
-  plugin_link="$plugin_dir/lore-flow"
+  plugin_link="$plugin_dir/pallas-agent-flow"
   mkdir -p "$plugin_dir"
   if [[ -e "$plugin_link" || -L "$plugin_link" ]]; then
-    printf 'Cursor Lore Flow link already exists at %s; leaving it unchanged.\n' "$plugin_link"
+    printf 'Cursor Pallas Agent Flow link already exists at %s; leaving it unchanged.\n' "$plugin_link"
   else
     ln -s "$flow_home" "$plugin_link"
-    printf 'Linked Lore Flow into Cursor.\n'
+    printf 'Linked Pallas Agent Flow into Cursor.\n'
   fi
 fi

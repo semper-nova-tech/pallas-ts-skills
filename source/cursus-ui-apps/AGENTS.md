@@ -12,10 +12,10 @@
 
 <!-- nx configuration end-->
 
-## Lore Flow
+## Pallas Agent Flow
 
-This workspace uses the [Lore Flow](https://github.com/jmarlett93/lore-flow) Cursor plugin for PRD-to-sequenced-PR delivery. The plugin is installed outside the repo (`$LORE_FLOW_HOME`, typically `~/tools/lore-flow`) and linked at `~/.cursor/plugins/local/lore-flow` — do not vendor a second copy of `skills/` here.
+This workspace uses the [Pallas Agent Flow](https://github.com/semper-nova-tech/pallas-agent-flow) Cursor plugin for PRD-to-sequenced-PR delivery. The plugin is installed outside the repo (`$PALLAS_AGENT_FLOW_HOME`, typically `~/tools/pallas-agent-flow`) and linked at `~/.cursor/plugins/local/pallas-agent-flow` — do not vendor a second copy of `skills/` here.
 
-- Invoke: `/orchestrate-feature` or ask to run Lore Flow with preset `cursor.normal` (or `cursor.heavy`) against a PRD and base branch.
-- Run state is written under `.lore-flow/runs/<run-id>/` (gitignored).
-- Repository coding standards stay in `.cursor/rules/` and `.agents/skills/`; Lore Flow does not replace them.
+- Invoke: `/orchestrate-feature` or ask to run Pallas Agent Flow with preset `cursor.normal` (or `cursor.heavy`) against a PRD and base branch.
+- Run state is written under `.pallas-agent-flow/runs/<run-id>/` (gitignored).
+- Repository coding standards stay in `.cursor/rules/` and `.agents/skills/`; Pallas Agent Flow does not replace them.
