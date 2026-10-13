@@ -5,7 +5,7 @@ technical specs, Ponytail-reviewed packets, parallel implementation worktrees, a
 targeted recovery.
 
 - Repository: https://github.com/semper-nova-tech/pallas-agent-flow
-- Pinned ref: `c02d5e9`
+- Pinned ref: `eea1de8`
 - Install location: `$PALLAS_AGENT_FLOW_HOME` or `$HOME/tools/pallas-agent-flow`
 - Cursor integration: `~/.cursor/plugins/local/pallas-agent-flow`
 - Recommended preset: `cursor.simple`

@@ -84,7 +84,7 @@ fi
 
 if [[ "$with_pallas_agent_flow" == true ]]; then
   flow_home="${PALLAS_AGENT_FLOW_HOME:-$HOME/tools/pallas-agent-flow}"
-  flow_ref="c02d5e9c0ad4dafe8c28799c06dc885eb9b2f13d"
+  flow_ref="eea1de8d974f8f6b85d345d2ac6a3c016f83ed79"
   flow_repo="https://github.com/semper-nova-tech/pallas-agent-flow.git"
 
   if [[ -e "$flow_home" ]]; then
